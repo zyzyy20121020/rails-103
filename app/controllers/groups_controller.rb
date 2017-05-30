@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  def edit    
+  def edit
   end
 
   def new
@@ -40,6 +40,11 @@ class GroupsController < ApplicationController
   def destroy
       @group.destroy
       redirect_to groups_path, alert: "Group deleted"
+  end
+
+  def show
+    @group = Group.find(params[:id])
+    @posts = @group.posts
   end
 
   private
